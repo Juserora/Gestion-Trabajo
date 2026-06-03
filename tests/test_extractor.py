@@ -4,7 +4,7 @@ from unittest.mock import MagicMock
 import pytest
 
 from extractor import DocumentExtractor, ExtractionError, IllegibleDocumentError
-from schemas import IdentidadSchema
+from esquemas import IdentidadSchema
 
 
 def make_response(text: str) -> MagicMock:

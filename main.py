@@ -5,7 +5,7 @@ import json
 import sys
 from typing import Optional, Union
 
-from converter import (
+from convertidor import (
     FileConversionError,
     FileTooLargeError,
     UnsupportedFileTypeError,
@@ -16,7 +16,7 @@ from extractor import (
     ExtractionError,
     IllegibleDocumentError,
 )
-from schemas import SCHEMA_MAP
+from esquemas import SCHEMA_MAP
 
 FileInput = Union[str, bytes]
 

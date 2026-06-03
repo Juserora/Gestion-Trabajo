@@ -13,9 +13,9 @@ clave y devolverlos como JSON validado con Pydantic v2.
 
 ## Arquitectura de archivos
 ```
-schemas.py      → Esquemas Pydantic (FacturaSchema, ContratoSchema, IdentidadSchema)
+esquemas.py     → Esquemas Pydantic (FacturaSchema, ContratoSchema, IdentidadSchema)
                   + dict SCHEMA_MAP {"factura": ..., "contrato": ..., "identidad": ...}
-converter.py    → file_to_base64(file) → (base64_str, media_type)
+convertidor.py  → file_to_base64(file) → (base64_str, media_type)
                   Detecta formato por magic bytes. PDF → combina páginas verticalmente.
 extractor.py    → class DocumentExtractor
                   .extract(image_b64, media_type, schema) → BaseModel
@@ -42,7 +42,7 @@ tests/
   (`converter.py` y `extractor.py`).
 - El prompt se genera dinámicamente desde `schema.model_json_schema()` —
   nunca hay prompts hardcodeados por tipo de documento.
-- Para agregar un nuevo tipo: definir schema en `schemas.py` + registrar en
+- Para agregar un nuevo tipo: definir schema en `esquemas.py` + registrar en
   `SCHEMA_MAP`. Nada más.
 
 ## Comandos clave

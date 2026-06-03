@@ -61,8 +61,8 @@ python main.py samples/identidad_muestra.png identidad
 ## Estructura
 
 ```
-schemas.py               # Esquemas Pydantic por tipo de documento
-converter.py             # Convierte PDF/imagen a base64
+esquemas.py              # Esquemas Pydantic por tipo de documento
+convertidor.py           # Convierte PDF/imagen a base64
 extractor.py             # Llama a Claude y maneja el reintento
 main.py                  # Función principal + CLI
 samples/
@@ -76,7 +76,7 @@ tests/
 
 ## Cómo agregar un nuevo tipo de documento
 
-Define el schema en `schemas.py`:
+Define el schema en `esquemas.py`:
 
 ```python
 class CertificadoSchema(BaseModel):
@@ -86,7 +86,7 @@ class CertificadoSchema(BaseModel):
     fecha_emision: Optional[str] = Field(None, description="Fecha de emisión (YYYY-MM-DD).")
 ```
 
-Regístralo en `SCHEMA_MAP`:
+Regístralo en el `SCHEMA_MAP` de `esquemas.py`:
 
 ```python
 SCHEMA_MAP = {
