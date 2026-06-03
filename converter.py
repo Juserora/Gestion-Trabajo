@@ -107,7 +107,6 @@ def _resize_if_needed(image: Image.Image) -> Image.Image:
 
 
 def _encode_image(image: Image.Image) -> Tuple[str, str]:
-    # PNG primero (sin pérdida, mejor para texto); fallback a JPEG si es muy grande
     buffer = io.BytesIO()
     image.save(buffer, format="PNG", optimize=True)
     raw = buffer.getvalue()

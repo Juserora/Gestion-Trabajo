@@ -13,12 +13,12 @@ class ItemFactura(BaseModel):
 
 
 class FacturaSchema(BaseModel):
-    numero_factura: str = Field(..., description="Número o consecutivo único de la factura.")
-    fecha_emision: Optional[str] = Field(None, description="Fecha de emisión en formato ISO 8601 (YYYY-MM-DD).")
-    emisor_nombre: str = Field(..., description="Razón social o nombre de quien emite la factura.")
-    emisor_identificacion: Optional[str] = Field(None, description="Identificación tributaria del emisor (NIT, RUT o equivalente).")
-    receptor_nombre: Optional[str] = Field(None, description="Nombre o razón social del cliente o receptor.")
-    receptor_identificacion: Optional[str] = Field(None, description="Identificación tributaria del receptor, si aparece.")
+    numero_factura: str = Field(..., description="Número de la factura.")
+    fecha_emision: Optional[str] = Field(None, description="Fecha de emisión (YYYY-MM-DD).")
+    emisor_nombre: str = Field(..., description="Nombre o razón social del emisor.")
+    emisor_identificacion: Optional[str] = Field(None, description="NIT o identificación tributaria del emisor.")
+    receptor_nombre: Optional[str] = Field(None, description="Nombre del cliente o receptor.")
+    receptor_identificacion: Optional[str] = Field(None, description="Identificación del receptor, si aparece.")
     moneda: Optional[str] = Field(None, description="Código o símbolo de la moneda (ej. COP, USD, $).")
     subtotal: Optional[float] = Field(None, description="Valor total antes de impuestos.")
     impuestos: Optional[float] = Field(None, description="Valor total de impuestos (ej. IVA).")
@@ -27,9 +27,9 @@ class FacturaSchema(BaseModel):
 
 
 class ContratoSchema(BaseModel):
-    tipo_contrato: Optional[str] = Field(None, description="Tipo o naturaleza del contrato (ej. arrendamiento, prestación de servicios).")
-    partes: List[str] = Field(default_factory=list, description="Nombres de las partes que firman el contrato.")
-    objeto: Optional[str] = Field(None, description="Objeto o propósito principal del contrato (resumen breve).")
+    tipo_contrato: Optional[str] = Field(None, description="Tipo de contrato (ej. arrendamiento, prestación de servicios).")
+    partes: List[str] = Field(default_factory=list, description="Partes que firman el contrato.")
+    objeto: Optional[str] = Field(None, description="Objeto del contrato, resumen breve.")
     fecha_inicio: Optional[str] = Field(None, description="Fecha de inicio de vigencia en formato ISO 8601 (YYYY-MM-DD).")
     fecha_fin: Optional[str] = Field(None, description="Fecha de finalización en formato ISO 8601 (YYYY-MM-DD), si aplica.")
     valor: Optional[float] = Field(None, description="Valor monetario total del contrato, si se especifica.")
