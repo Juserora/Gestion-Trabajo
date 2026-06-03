@@ -25,8 +25,8 @@ def extract_document(file: FileInput, document_type: str, client=None) -> dict:
     key = document_type.strip().lower()
     schema = SCHEMA_MAP.get(key)
     if schema is None:
-        soportados = ", ".join(sorted(SCHEMA_MAP.keys()))
-        raise ValueError(f"Tipo de documento no soportado: '{document_type}'. Tipos válidos: {soportados}.")
+        opciones = ", ".join(sorted(SCHEMA_MAP.keys()))
+        raise ValueError(f"'{document_type}' no es un tipo válido. Opciones: {opciones}.")
 
     image_base64, media_type = file_to_base64(file)
     extractor = DocumentExtractor(client=client)
